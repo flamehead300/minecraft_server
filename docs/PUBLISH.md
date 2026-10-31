@@ -1,6 +1,7 @@
 # GitHub review workflow
 
-Repository: https://github.com/flamehead300/minecraft_server.\nRepository visibility is an account setting: verify it on GitHub before sharing a link.
+Repository: https://github.com/flamehead300/minecraft_server.
+Repository visibility is an account setting: verify it on GitHub before sharing a link.
 Review branch: `feat/crossplay-foundation`; target: `main`.
 
 The user created the empty repository. The GitHub connector initialized a minimal
@@ -20,4 +21,7 @@ git log -1 --oneline
 Inspect the pull request and GitHub checks before merging. The original source
 ZIP and Git bundle are pre-publication snapshots with a separate local history;
 do not force-push that history over this repository. Use the remote review branch
-for continuation. Host deployment remains manual and separate from merging.\nSee HOST_PRESALES.md before purchase, PC_STAGING.md for the restore drill,\nPLUGIN_UPDATES.md for a safe plugin-only fast path, and COREPROTECT.md for\nthe planned anti-grief plugin compatibility gate.
+for continuation. Host deployment remains manual and separate from merging.
+See HOST_PRESALES.md before purchase, PC_STAGING.md for the restore drill,
+PLUGIN_UPDATES.md for a safe plugin-only fast path, and COREPROTECT.md for
+the planned anti-grief plugin compatibility gate.
