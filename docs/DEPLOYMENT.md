@@ -28,7 +28,7 @@ confirm with the host or in the selected service:
 
 Use the host's panel and console. No root, SSH, systemd, Docker or deployment API
 is assumed. The host lists an API article, but its permissions and deployment
-semantics have not been verified. No automatic production deployment is included.
+semantics have not been verified. No automatic production deployment is included. Obtain a host response using\n`docs/HOST_PRESALES.md` before purchase.
 
 ## Initial installation (new world only)
 
@@ -87,7 +87,7 @@ Keep ordinary testers non-operators. Do not commit whitelist/ops files or gamert
 2. Notify players, cleanly stop, disable automatic restart, make a full verified
    off-host backup, and complete a restore drill. Retain the old lock/package
    and exact Java runtime record. Do not proceed with an untested recovery path.
-3. Restore into a **separate** instance with separate ports and sufficient memory.
+3. Restore into a **separate** instance with separate ports and sufficient memory.\n   Use the Windows PC per `docs/PC_STAGING.md` for the first recovery rehearsal.
    Stage the new JARs there. Keep worlds, configs, permissions and keys. Review
    migrations using a three-way comparison: old generated defaults, current
    operator configs and new generated defaults. Apply only reviewed changes.
@@ -106,7 +106,7 @@ Keep ordinary testers non-operators. Do not commit whitelist/ops files or gamert
    secrets + runtime** into a clean instance. Never downgrade just the server JAR
    against a world already written by a newer version. Document any lost progress.
 
-Automated deployment is a future task only after host capabilities are proven.
+For a **Geyser/Floodgate-only** update that keeps the identical Paper binary and Java\nruntime, follow `docs/PLUGIN_UPDATES.md` and verify the narrow package produced by\n`scripts/plugin_update.py` instead of blindly uploading a full release. This is\nnot a shortcut around backup, stage, join and identity tests. CoreProtect remains\nblocked by the compatibility gate in `docs/COREPROTECT.md`.\n\nAutomated deployment is a future task only after host capabilities are proven.
 It must be manually triggered, use a protected production environment and secret
 storage, verify backups and target identity, and refuse destructive world changes.
 
