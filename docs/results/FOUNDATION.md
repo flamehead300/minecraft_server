@@ -19,7 +19,7 @@ server execution, EULA acceptance, host purchase or world creation occurred.
 | Existing-target protection / tampering / malformed download cases | PASS in safety suite |
 | Tracked-file guard and staged whitespace check | PASS |
 
-NOT RUN: Windows execution, GitHub Actions, host deployment, Java 25 runtime,
+UPDATE (2026-10-30): Earlier GitHub Actions check for foundation commit\n`0271daa` completed successfully (including configured OS matrix and binary\npackage jobs). Amendment-branch checks must run again before PR review.\n\nNOT RUN at initial local validation: Windows execution, GitHub Actions, host deployment, Java 25 runtime,
 actual Paper-generated config capture, real Java/Bedrock joins, gameplay,
 restart persistence, actual world recovery, live upgrade/rollback and 5/10/20
 active-player load tests. Missing hosting access, legal acceptance, runtime,
