@@ -2,12 +2,13 @@
 
 ## Current state
 
-Repository: https://github.com/flamehead300/minecraft_server.\nDo not hard-code repository visibility; inspect GitHub settings before sharing access.
+Repository: https://github.com/flamehead300/minecraft_server.
+Do not hard-code repository visibility; inspect GitHub settings before sharing access.
 The user created this repository and authorized it as the destination. Inspection
 confirmed it was empty with no branches, files or AGENTS.md. Initialized `main`
 with a minimal README, then created `feat/crossplay-foundation` for review.
-The implementation is being published through the GitHub connector; browser or
-Google sign-in is not required. No existing remote work was overwritten.
+The foundation was published as draft PR #1 through the GitHub connector;
+browser or Google sign-in is not required. No existing remote work was overwritten.
 
 The original local preparation history ends at 1926fde; the remote review branch
 uses the new repository's initial commit as its parent. Use the remote branch
@@ -52,20 +53,18 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 
 ## Exact next steps
 
-1. Obtain a written PebbleHost reply using HOST_PRESALES.md. Confirm `Java 25`, dual-protocol Bedrock port, SFTP and reliable backup workflow; do not purchase until the blockers are resolved.
-2. Complete the PC stage/restore drill once Java 25 and a suitable machine are available. Record exact results without secrets.
-3. Review the pull request on `flamehead300/minecraft_server`, branch
-   `feat/crossplay-foundation`. Check its latest commit and GitHub checks before
-   merging. Do not deploy merely because repository checks pass.
-2. Confirm host price, Java 25 exact runtime, separate TCP+UDP Bedrock allocation,
-   secure transfer and backup capabilities. Do not buy or agree to terms on the
-   user's behalf.
-3. After the operator provisions the service and accepts agreements, follow
-   DEPLOYMENT initial-install steps. Generate/capture defaults and review initial
-   config proposals before exposing the whitelisted listener.
-5. Execute TEST_PLAN gate 1: one real Java + one real Bedrock player, restart
-   persistence, then complete stopped backup/restoration into a separate instance.
-   Record evidence and update this file. Only then start capacity stages.\n6. Obtain a compatible immutable CoreProtect release/hash, extend the lock and manifest,\n   test it on PC, and then explicitly approve the additional plugin.
+1. Obtain a written PebbleHost reply using HOST_PRESALES.md. Confirm Java 25,
+   dual-protocol Bedrock port, SFTP and reliable backup procedure. No purchase yet.
+2. Use PC_STAGING.md to prove one Java + Bedrock join, restart persistence and
+   full stopped backup/restore after operator-approved EULA acceptance.
+3. Review draft PR #1 on `feat/crossplay-foundation` and await passing GitHub
+   checks on its newest commit before merging. Do not deploy on CI alone.
+4. Only after host purchase and operator EULA approval, follow DEPLOYMENT.md
+   initial-install steps and capture actual generated defaults.
+5. Execute TEST_PLAN milestone 1 against the actual host, then stage 5/10/20
+   active-player capacity tests with representative workloads.
+6. Obtain a compatible immutable CoreProtect release and verified hash,
+   extend the binary lock and manifest, test it on PC, then approve installation.
 
 ## Continuation prompt
 
