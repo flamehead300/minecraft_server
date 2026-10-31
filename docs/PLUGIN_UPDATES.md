@@ -1,0 +1,13 @@
+# Geyser/Floodgate-only maintenance fast path
+
+Use this **only** when Paper/Minecraft, Java major runtime, and the world data format remain unchanged. Never treat a plugin update as permission to use the latest floating JAR or silently change plugin keys and account identities.
+
+1. Review official Geyser/Floodgate releases and supported Java/Bedrock versions. Record exact build IDs, immutable official download links and published SHA-256 in the next candidate lock. Test any required Geyser/Floodgate pairing and client version support.
+2. Create a complete stopped backup **including** Geyser and Floodgate directories and `key.pem`, whitelist/ops, worlds and other plugin data. Verify its manifest and restore a copy on the PC stage before editing production. Keep prior JARs and lock.
+3. Generate a candidate package from a separately reviewed lock. Download/verify JARs and package manifest using the existing `scripts/manage.py` tooling. **Do not upload candidate `server.jar` or initialize a new world.** Compare old versus new locks: Paper artifact/version/hash and Java major MUST be identical; only `geyser`/`floodgate` changes are allowed. The `scripts/plugin_update.py` helper creates a plugin-only manifest/package and enforces this comparison.
+4. On PC staging, stop cleanly; replace **only** `plugins/Geyser-Spigot.jar` and/or `plugins/floodgate-spigot.jar`. Preserve generated configs, keys, accounts and linking data. Never delete directories, reinstall, or overwrite real configs with generated defaults. Start and check console for migrations/warnings, auth behavior, TCP+UDP Bedrock join and Java join. Repeat restart/backup checks.
+5. After a maintenance announcement and fresh verified production backup, stop production, upload only the two candidate plugin JARs that changed, verify hashes on a local downloaded round trip, start and test Java+Bedrock joins and identities. Update the production lock/version record by copying the approved candidate lock; keep original too.
+6. On failure, **stop and restore the matching full pre-update snapshot** to a clean instance. Even if no Paper world upgrade was planned, plugin data formats may have changed; replacing only plugin JARs is not a guaranteed rollback.
+7. Record change reason, exact builds, hashes, changed settings, test outcomes and preserved secrets in HANDOFF/results. Do not call a staged build production-ready before real hosted checks.
+
+This flow is manual and intentionally does not need a host shell, API or SSH. The plugin-only package includes no worlds, credentials, configs or secrets. Any CoreProtect update uses a separate compatibility gate; it is never implicitly included in this fast path.

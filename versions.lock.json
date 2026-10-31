@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-10-30",
+  "minecraft_java": "26.3",
+  "bedrock_supported": "26.40-26.60 (documentation; client verification pending)",
+  "java": {
+    "major": 25,
+    "host_runtime_exact": null,
+    "status": "Host must confirm Java 25 vendor and full patch/build before deployment"
+  },
+  "artifacts": [
+    {
+      "id": "paper",
+      "version": "26.3",
+      "build": 231,
+      "url": "https://fill-data.papermc.io/v1/objects/a836a016be7ac52352eb3a1efb6857bb42ee73a6c78d46e292f7e87742edb0e6/paper-26.3-231.jar",
+      "sha256": "a836a016be7ac52352eb3a1efb6857bb42ee73a6c78d46e292f7e87742edb0e6",
+      "destination": "server.jar",
+      "metadata_url": "https://fill.papermc.io/v3/projects/paper/versions/26.3/builds/231",
+      "verified_on": "2026-10-30",
+      "verification": "Downloaded official artifact; SHA-256 matches published metadata; ZIP integrity passed",
+      "size_bytes": 55258607
+    },
+    {
+      "id": "geyser",
+      "version": "2.12.1",
+      "build": 1279,
+      "url": "https://download.geysermc.org/v2/projects/geyser/versions/2.12.1/builds/1279/downloads/spigot",
+      "sha256": "234fa467a32bbc780bd495296eb18fa0fbd7af8dab41f137ed5f7a45aabfbb90",
+      "destination": "plugins/Geyser-Spigot.jar",
+      "metadata_url": "https://download.geysermc.org/v2/projects/geyser/versions/2.12.1/builds/1279",
+      "verified_on": "2026-10-30",
+      "verification": "Downloaded official artifact; SHA-256 matches published metadata; ZIP integrity passed",
+      "size_bytes": 52115333
+    },
+    {
+      "id": "floodgate",
+      "version": "2.2.5",
+      "build": 141,
+      "url": "https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/141/downloads/spigot",
+      "sha256": "21570aff9ce17d6983928e8552777760e1ede5050026b04c686b0ae112e6fd7e",
+      "destination": "plugins/floodgate-spigot.jar",
+      "metadata_url": "https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/141",
+      "verified_on": "2026-10-30",
+      "verification": "Downloaded official artifact; SHA-256 matches published metadata; ZIP integrity passed",
+      "size_bytes": 11561096
+    }
+  ]
+}
