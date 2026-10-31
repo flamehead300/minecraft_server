@@ -44,19 +44,49 @@ detect corruption, not Minecraft consistency or malicious substitution.
 
 ## Retention and schedule
 
-Initial policy: one clean stopped snapshot daily in an agreed maintenance window;
-retain 7 daily, 4 weekly and 3 monthly recovery points plus every pre-upgrade
-snapshot for at least 30 days. Keep at least one proven previous release until
-the next release passes. Maintain two off-host copies, one separate from the
-primary computer. Retention pruning is manual and only after a newer copy is
-verified. Check storage capacity and alert on failed/missed backups.
+### Provisional manual policy — operator acceptance required
 
-Target recovery point loss: no more than 24 hours in the initial daily schedule.
-Target recovery time: 60 minutes, **unmeasured** until the drill. Agree on a
-maintenance time with players before enabling any panel schedule. Premium's
-advertised daily/hourly backups supplement this process; their application
-consistency and effective retention need confirmation. No live backup is approved
-until save coordination, files/databases and restore consistency are demonstrated.
+**Proposed cadence:** one **clean stopped full backup weekly**, and an additional
+verified stopped backup **before each update, configuration change, migration,
+plugin installation, or other potentially destructive operation**. This is a
+proposed minimum, not an assertion the owner has committed to it or that any
+backup has happened. Agree on a specific weekly maintenance window before
+opening the server. If a weekly manual cadence is not practical, obtain and
+restore-test a reliable managed/automatic alternative first.
+
+Each backup requires confirmed clean shutdown, a complete server-root copy
+(including all plugin databases, world data, keys and permission files),
+SHA-256 verification, encryption, and at least one independent copy **outside
+the running host and the operator PC**. Prefer two independent encrypted storage
+locations. Keep a private operator log recording date/time, archive/checksum,
+off-host location, verification result and responsible person. The backup script
+does not encrypt. Do not commit secrets, database records or this log.
+
+**Off-host retention target:** keep 4 verified weekly snapshots, 3 month-end
+snapshots (a week-ending point may also be month-end), plus pre-upgrade snapshots
+for at least 30 days. Keep the old complete release until the new release has
+passed a real restore. Prune only after newer copies are verified; check storage
+capacity. Premium's advertised four manual panel slots and short retention are
+supplementary and cannot meet this off-host policy alone.
+
+**Recovery point exposure:** successful weekly backups may still lose **up to
+seven days of player/world progress** if the server is lost. If a backup is
+missed, corrupted, or never exported off-host, possible loss may exceed a week.
+The former **24-hour RPO target is withdrawn** unless a daily or more frequent
+backup method is actually verified. Pre-change backups do not substitute for
+routine protection.
+
+**Recovery time target:** 60 minutes remains **unmeasured**, not a guarantee.
+Document download/decrypt/upload/start/rejoin time in the PC restore drill and
+repeat the drill with the selected host.
+
+**Unattended scheduling is NOT authorized:** PebbleHost's published Scheduled
+Tasks guide lists Power Action and Send Command; offsets are fixed delays, not
+checks that save/shutdown or backup completed. Until the host confirms a native
+or supported backup action with reliable completion and failure handling, use
+an operator-supervised stop → verify fully offline → copy/hash/encrypt/export →
+start procedure. Do not implement stop → fixed delay → backup → fixed delay →
+start. See HOST_PRESALES.md questions 5 and 6.
 
 ## Restoration drill
 
