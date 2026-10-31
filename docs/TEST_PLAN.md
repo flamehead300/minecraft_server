@@ -77,7 +77,9 @@ agree a bounded pre-generation area, pin its tool separately, schedule offline
 work and measure before/after using the same route. Do not claim pre-generation
 proves unbounded exploration capacity. Adjust budget/host only with authorization.
 
-## Gate 3 — safe update rehearsal
+## CoreProtect extension gate (after compatible release is pinned)
+
+Current status: NOT RUN. Only after COREPROTECT.md's immutable version/hash\nrequirement is satisfied, test CoreProtect block and container history with\nJava and Floodgate identities on PC staging. Confirm normal players cannot\ninspect or rollback histories, trusted admins can preview and reverse a small\nsynthetic grief event, and restored databases preserve logs. Repeat representative\nMSPT, disk utilization and backup timings with logging enabled. Preserve no player\nidentifiers or chat contents in GitHub results. A plugin rollback is not a full backup.\n\n## Gate 3 — safe update rehearsal
 
 Starting from a restored snapshot with real test progress and deliberately
 customized harmless config values, stage the candidate release. Verify custom
