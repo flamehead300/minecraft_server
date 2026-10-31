@@ -33,3 +33,11 @@
 .env*
 __pycache__/
 .venv/
+
+# Runtime plugin settings/databases (CoreProtect, Floodgate and Geyser).
+/plugins/
+**/plugins/CoreProtect/
+*.duckdb
+*.wal
+*.db-shm
+*.sqlite-shm
