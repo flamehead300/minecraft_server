@@ -81,7 +81,7 @@ These are **staging-only** files. Do not upload `server.jar` from a plugin-only 
 
 - [Configuration policy](config/README.md): defaults provenance, ports, gameplay effects.
 - [Deployment and upgrades](docs/DEPLOYMENT.md): manual game-panel workflow.
-- [Backups and recovery](docs/BACKUP_RESTORE.md): stopped-server snapshots and complete rollback.
+- [Backups and recovery](docs/BACKUP_RESTORE.md): provisional weekly manual stopped backups plus pre-change backups, with up to seven days (or more if missed) of potential progress loss. Owner approval required before launch.
 - [Test plan](docs/TEST_PLAN.md): functional milestone, 5/10/20-player performance gates.
 - [Verification sources](docs/VERIFICATION.md): official documentation and remaining host checks.
 - [Pre-purchase inquiry](docs/HOST_PRESALES.md): vendor checklist and unanswered questions.
