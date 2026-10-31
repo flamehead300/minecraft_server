@@ -8,7 +8,8 @@ files = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
 bad = []
 for name in filter(None, files):
     p = PurePosixPath(name)
-    if (p.suffix.lower() in {".jar", ".pem", ".key", ".mca", ".dat", ".db", ".zip", ".log"}
+    if (p.suffix.lower() in {".jar", ".pem", ".key", ".mca", ".dat", ".db", ".zip", ".log", ".duckdb", ".wal"}
+        or "plugins" in p.parts
         or p.name in {"ops.json", "whitelist.json", "usercache.json", "eula.txt"}
         or any(s in {"runtime", "private", "downloads", "dist", "backups", "defaults", "generated", "playerdata", "logs"} or s.startswith("world") for s in p.parts)
         or p.name.startswith(".env")):
