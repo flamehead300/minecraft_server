@@ -37,30 +37,30 @@ Do not silently select an older Minecraft version just to use the available JRE.
 
 | Requirement | Evidence / status |
 | --- | --- |
-| Premium 8 GB price | Planning estimate $18/month remains unconfirmed at checkout. Public Premium page's dynamic price was not exposed in the readable page. Recheck actual selected plan before purchase. |
+| Premium 8 GB price | Official billing catalog lists Premium 8 GB starting at $18.00/month; exact checkout/location/taxes/add-ons are still unconfirmed. |
 | Java 25 | Host advertises all major Java versions; exact Java 25 image/vendor/patch on target instance still needs confirmation. |
 | Custom JAR / plugins | Public Premium page explicitly supports custom JARs and file access. Knowledgebase version selector lists Paper, Spigot and Geyser. |
 | Network | Host advertises extra ports via panel. Exact additional TCP+UDP NetherNet allocation and DDoS compatibility are pending. Historical same-port UDP instructions are insufficient for selected NetherNet mode. |
 | File transfer | Host advertises FTP access; indexed file-access guide references SFTP. Confirm actual encrypted endpoint, credentials handling and host key in the panel. |
-| Backups | Premium advertises daily and hourly incremental backups; indexed backup guide describes downloadable backups. Exact retention and application-consistency behavior remain pending. |
+| Backups | Official guide documents 4 Premium manual backup slots retained for 7 days, download links and optional automatic-backup access; export and consistency must be verified in the purchased instance. |
 | Memory | Custom startup flags advertised; effective heap limit and total-process accounting need panel confirmation. |
-| API | Knowledgebase lists an API article; no deployment API was tested or assumed. |
+| Scheduler | Official Scheduled Tasks guide lists Power Action and Send Command only. No verified native Backup action or completion barrier; automation blocked pending support. |\n| API | Knowledgebase lists an API article; no deployment API was tested or assumed. |\n| CoreProtect | Public Community Edition v24.1 lists support only through MC 26.2; developer's Patreon lists v25.1 as 26.3-compatible but no usable verified immutable JAR/hash is available to this project. See COREPROTECT.md. |
 
 Official host sources consulted:
 
-- https://pebblehost.com/minecraft/premium
+- https://billing.pebblehost.com/index.php?rp=%2Fstore%2Fpremium-minecraft-hosting\n- https://pebblehost.com/minecraft/premium
 - https://help.pebblehost.com/en/minecraft/choosing-a-minecraft-server-version
 - https://help.pebblehost.com/en/minecraft/how-to-change-your-java-version-on-your-minecraft-server
 - https://help.pebblehost.com/en/minecraft/additional-ports-system
 - https://help.pebblehost.com/en/minecraft/how-to-install-geyser-and-floodgate-onto-your-minecraft-server
 - https://help.pebblehost.com/en/minecraft/how-to-access-your-minecraft-servers-files
-- https://help.pebblehost.com/en/minecraft/backups-explained
+- https://help.pebblehost.com/en/minecraft/backups-explained\n- https://help.pebblehost.com/en/minecraft/how-to-set-up-scheduled-tasks
 
 Several help pages rendered only an input control in the research reader;
 indexed snippets and the public product page provide partial evidence. No
 instance-level capability is marked tested on that basis. Direct fetching of
 the Premium page from this workspace returned HTTP 403; the web reader provided
-the product text but no usable 8 GB price. No purchase was attempted.
+the product text but the official billing catalog separately lists $18/month. No purchase was attempted.
 
 Python tooling depends on PyYAML 6.0.3. GitHub Actions pins checkout/setup-python
 by commit; runner image and Python patch versions can vary. Server/plugin release
