@@ -89,6 +89,4 @@ These are **staging-only** files. Do not upload `server.jar` from a plugin-only 
 - [Plugin-only updates](docs/PLUGIN_UPDATES.md): limited JAR replacement, no server upgrade.
 - [CoreProtect gate](docs/COREPROTECT.md): anti-grief plugin plan and version blocker.
 
-For a new chat: **Read `docs/HANDOFF.md` on `feat/crossplay-foundation`, verify the
-current branch and commit, and continue the next unchecked milestone. Do not
-purchase hosting, accept agreements, or overwrite an existing world.**
+For a new chat: **Read `docs/HANDOFF.md` on `main`, verify the current branch and commit, and continue the next unchecked milestone. Do not purchase hosting, accept agreements, or overwrite an existing world.**

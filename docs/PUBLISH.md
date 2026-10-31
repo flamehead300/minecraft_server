@@ -1,27 +1,27 @@
-# GitHub review workflow
+# GitHub publication and handoff
 
-Repository: https://github.com/flamehead300/minecraft_server.
-Repository visibility is an account setting: verify it on GitHub before sharing a link.
-Review branch: `feat/crossplay-foundation`; target: `main`.
+Repository: https://github.com/flamehead300/minecraft_server
+Visibility verified **public** on 2026-10-30; check account settings before
+sharing later. Do not commit secrets, worlds, player data or plugin databases.
 
-The user created the empty repository. The GitHub connector initialized a minimal
-README on main, then created the review branch. All implementation files are
-submitted for review there. No browser or Google authentication is required.
+PR #1 from `feat/crossplay-foundation` was **squash-merged** into `main`
+as commit `43202b9feaf9765684a231341493b2e06b462dd8`, after the final
+GitHub Actions workflow (Linux, Windows, artifact verification) passed.
+The review branch, its per-file commit history and pre-publication ZIPs are
+historical. Do not force-push that history onto `main`.
 
-Clone the authoritative repository into an unused directory:
+Clone the authoritative repository into a new directory:
 
 ```text
 git clone https://github.com/flamehead300/minecraft_server.git
 cd minecraft_server
-git switch feat/crossplay-foundation
+git switch main
 git status
 git log -1 --oneline
 ```
 
-Inspect the pull request and GitHub checks before merging. The original source
-ZIP and Git bundle are pre-publication snapshots with a separate local history;
-do not force-push that history over this repository. Use the remote review branch
-for continuation. Host deployment remains manual and separate from merging.
-See HOST_PRESALES.md before purchase, PC_STAGING.md for the restore drill,
-PLUGIN_UPDATES.md for a safe plugin-only fast path, and COREPROTECT.md for
-the planned anti-grief plugin compatibility gate.
+For follow-up work, branch from the **current `main`** and open a new PR.
+Host deployment is manual and separate from a source merge; nothing is live
+or hosting-purchased. Read HANDOFF.md, HOST_PRESALES.md, BACKUP_RESTORE.md
+(provisional weekly manual policy awaiting owner acceptance), PC_STAGING.md,
+PLUGIN_UPDATES.md and COREPROTECT.md before proceeding.

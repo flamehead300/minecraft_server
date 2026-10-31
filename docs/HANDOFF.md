@@ -7,7 +7,7 @@ Do not hard-code repository visibility; inspect GitHub settings before sharing a
 The user created this repository and authorized it as the destination. Inspection
 confirmed it was empty with no branches, files or AGENTS.md. Initialized `main`
 with a minimal README, then created `feat/crossplay-foundation` for review.
-The foundation was published as draft PR #1 through the GitHub connector;
+PR #1 was squash-merged into `main` as `43202b9` after CI passed;
 browser or Google sign-in is not required. No existing remote work was overwritten.
 
 The original local preparation history ends at 1926fde; the remote review branch
@@ -61,10 +61,9 @@ for future work. Prior downloadable archives are pre-publication snapshots.
   progress may be lost.** The owner has not yet accepted this cadence; do not
   claim the policy is running or open production without operator sign-off.
 - On `834aa4a`: 32 local safety tests passed, Linux/Windows GitHub Actions
-  and artifact checks passed. A new documentation-only commit must be checked
-  independently before PR #1 is squash-merged into `main`.
-- Squash merge is preferred to avoid per-file commit noise. Once merged, the
-  authoritative continuation branch is `main`, not the former review branch.
+  and artifact checks passed. The final PR-head CI passed before squash merge into `main`.
+- PR #1 was squash-merged; `main` is now authoritative. The previous feature
+  branch and pre-publication archives are historical.
 - Official CoreProtect CE v24.1 supports Minecraft through 26.2, not 26.3.
   It is optional for the whitelisted first milestone; do not install it
   until a verified supported release is pinned.
@@ -77,7 +76,7 @@ for future work. Prior downloadable archives are pre-publication snapshots.
    dual-protocol Bedrock port, SFTP and reliable backup procedure. No purchase yet.
 2. Use PC_STAGING.md to prove one Java + Bedrock join, restart persistence and
    full stopped backup/restore after operator-approved EULA acceptance.
-3. Verify GitHub Actions on the final pull-request head, then squash-merge PR #1 to `main`. CI alone is not evidence of game readiness.
+3. Continue work on `main`, which contains the squash merge `43202b9`. Confirm its current SHA and CI before changing deployment tooling; CI alone is not evidence of game readiness.
 4. Obtain the operator's explicit acceptance of the weekly backup cadence and potential seven-day data loss (or select a verified alternative). Only after host purchase and operator EULA approval, follow DEPLOYMENT.md
    initial-install steps and capture actual generated defaults.
 5. Execute TEST_PLAN milestone 1 against the actual host, then stage 5/10/20
@@ -87,13 +86,17 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 
 ## Continuation prompt
 
-> Open `flamehead300/minecraft_server`, verify the branch and commit and read
-> `docs/HANDOFF.md`, `docs/results/FOUNDATION.md` and any AGENTS.md. Continue the
-> first unchecked milestone on `main` if PR #1 is merged (else on its review branch). Preserve unrelated
-> work. Do not purchase hosting, accept agreements or overwrite a world. Distinguish
-> automated/synthetic checks from real crossplay, restart and restore tests. Update
-> HANDOFF after each milestone and deliver a reviewable commit/PR.
+> Open `flamehead300/minecraft_server` on `main`. Confirm PR #1 was
+> squash-merged in commit `43202b9` and verify the current branch/SHA.
+> Read `docs/HANDOFF.md`, `docs/HOST_PRESALES.md`,
+> `docs/BACKUP_RESTORE.md` and relevant AGENTS.md instructions. Confirm
+> owner acceptance of the provisional weekly off-host backup policy or a
+> demonstrated automatic alternative before production. Continue the
+> first unchecked milestone: one Java and one Bedrock player together,
+> restart persistence and a real restore drill. Do not buy hosting,
+> accept agreements, leak player data or overwrite a world. Record
+> evidence honestly and update HANDOFF after each milestone.
 
-Check whether PR #1 was squash-merged and confirm the current `main` SHA. The repository is the continuation record. Use `python scripts/continuation.py`
-to print a current prompt with branch/commit and this handoff; forward that output
-to the next chat. This avoids relying on conversational memory.
+The Git repository is the continuation record. Use
+`python scripts/continuation.py` on `main` to print a prompt with the
+current commit and this handoff, and forward its output to another chat.
