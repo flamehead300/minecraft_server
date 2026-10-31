@@ -60,13 +60,30 @@ authentication; never solve a join problem by switching the server to offline mo
 The selected NetherNet mode uses a separate Bedrock TCP+UDP port. Keep testing
 whitelisted until all acceptance gates pass.
 
+## Requested amendments and limits
+
+- Before purchase, use [HOST_PRESALES](docs/HOST_PRESALES.md). Java 25 and the dual TCP+UDP Bedrock allocation still need written confirmation.
+- Run the first stage and restore drill on the operator's [Windows PC](docs/PC_STAGING.md).
+- Stop → backup → start automation is **not enabled**: PebbleHost's published scheduler documents power/console actions but not an awaited backup step. Continue supervised stopped backups.
+- For Geyser/Floodgate-only releases, use [PLUGIN_UPDATES](docs/PLUGIN_UPDATES.md) and the fail-closed `scripts/plugin_update.py` package helper. This does not change Paper or world data.
+- [CoreProtect](docs/COREPROTECT.md) is **planned but NOT packaged or verified** until an official 26.3-compatible build/hash is approved. Do not use floating latest downloads.
+
+Plugin-only candidate example, after saving the current lock and independently preparing a new, pinned full candidate package:
+
+```text
+python scripts/plugin_update.py package private/old-versions.lock.json dist/candidate-full dist/plugin-update-candidate
+python scripts/plugin_update.py verify private/old-versions.lock.json dist/plugin-update-candidate
+```
+
+These are **staging-only** files. Do not upload `server.jar` from a plugin-only candidate. Back up and test first.
+
 ## Operations
 
 - [Configuration policy](config/README.md): defaults provenance, ports, gameplay effects.
 - [Deployment and upgrades](docs/DEPLOYMENT.md): manual game-panel workflow.
 - [Backups and recovery](docs/BACKUP_RESTORE.md): stopped-server snapshots and complete rollback.
 - [Test plan](docs/TEST_PLAN.md): functional milestone, 5/10/20-player performance gates.
-- [Verification sources](docs/VERIFICATION.md): official documentation and remaining host checks.
+- [Verification sources](docs/VERIFICATION.md): official documentation and remaining host checks.\n- [Pre-purchase inquiry](docs/HOST_PRESALES.md): vendor checklist and unanswered questions.\n- [Local recovery staging](docs/PC_STAGING.md): Windows PC restore drill.\n- [Plugin-only updates](docs/PLUGIN_UPDATES.md): limited JAR replacement, no server upgrade.\n- [CoreProtect gate](docs/COREPROTECT.md): anti-grief plugin plan and version blocker.
 
 For a new chat: **Read `docs/HANDOFF.md` on `feat/crossplay-foundation`, verify the
 current branch and commit, and continue the next unchecked milestone. Do not
