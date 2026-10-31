@@ -1,0 +1,23 @@
+{
+  "server.properties": {
+    "online-mode": "true",
+    "white-list": "true",
+    "enforce-whitelist": "true",
+    "enforce-secure-profile": "false",
+    "gamemode": "survival",
+    "difficulty": "normal",
+    "hardcore": "false",
+    "max-players": "20",
+    "view-distance": "8",
+    "simulation-distance": "6",
+    "enable-rcon": "false",
+    "enable-query": "false"
+  },
+  "geyser": {
+    "java.auth-type": "floodgate",
+    "bedrock.transport": "nethernet",
+    "bedrock.clone-remote-port": false,
+    "bedrock.webrtc-port": 0,
+    "bedrock.signaling.mode": "builtin"
+  }
+}
