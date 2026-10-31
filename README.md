@@ -83,7 +83,11 @@ These are **staging-only** files. Do not upload `server.jar` from a plugin-only 
 - [Deployment and upgrades](docs/DEPLOYMENT.md): manual game-panel workflow.
 - [Backups and recovery](docs/BACKUP_RESTORE.md): stopped-server snapshots and complete rollback.
 - [Test plan](docs/TEST_PLAN.md): functional milestone, 5/10/20-player performance gates.
-- [Verification sources](docs/VERIFICATION.md): official documentation and remaining host checks.\n- [Pre-purchase inquiry](docs/HOST_PRESALES.md): vendor checklist and unanswered questions.\n- [Local recovery staging](docs/PC_STAGING.md): Windows PC restore drill.\n- [Plugin-only updates](docs/PLUGIN_UPDATES.md): limited JAR replacement, no server upgrade.\n- [CoreProtect gate](docs/COREPROTECT.md): anti-grief plugin plan and version blocker.
+- [Verification sources](docs/VERIFICATION.md): official documentation and remaining host checks.
+- [Pre-purchase inquiry](docs/HOST_PRESALES.md): vendor checklist and unanswered questions.
+- [Local recovery staging](docs/PC_STAGING.md): Windows PC restore drill.
+- [Plugin-only updates](docs/PLUGIN_UPDATES.md): limited JAR replacement, no server upgrade.
+- [CoreProtect gate](docs/COREPROTECT.md): anti-grief plugin plan and version blocker.
 
 For a new chat: **Read `docs/HANDOFF.md` on `feat/crossplay-foundation`, verify the
 current branch and commit, and continue the next unchecked milestone. Do not
