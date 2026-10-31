@@ -21,9 +21,9 @@ server execution, EULA acceptance, host purchase or world creation occurred.
 
 UPDATE (2026-10-30): Earlier GitHub Actions check for foundation commit
 `0271daa` completed successfully (including configured OS matrix and binary
-package jobs). Amendment-branch checks must run again before PR review.
+package jobs). Amendment head `834aa4a` subsequently passed GitHub Actions on Linux, Windows, and the pinned-artifact packaging job. The full unit test suite at that commit passed **32 synthetic safety tests** (26 foundation tests plus 6 plugin-update tests). Re-check new documentation changes before squash merging.
 
-NOT RUN at initial local validation: Windows execution, GitHub Actions, host deployment, Java 25 runtime,
+NOT RUN at initial local validation (later GitHub CI performed Windows/Linux Python checks; no server boot): host deployment, Java 25 runtime,
 actual Paper-generated config capture, real Java/Bedrock joins, gameplay,
 restart persistence, actual world recovery, live upgrade/rollback and 5/10/20
 active-player load tests. Missing hosting access, legal acceptance, runtime,
