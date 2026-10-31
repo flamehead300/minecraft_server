@@ -79,7 +79,15 @@ proves unbounded exploration capacity. Adjust budget/host only with authorizatio
 
 ## CoreProtect extension gate (after compatible release is pinned)
 
-Current status: NOT RUN. Only after COREPROTECT.md's immutable version/hash\nrequirement is satisfied, test CoreProtect block and container history with\nJava and Floodgate identities on PC staging. Confirm normal players cannot\ninspect or rollback histories, trusted admins can preview and reverse a small\nsynthetic grief event, and restored databases preserve logs. Repeat representative\nMSPT, disk utilization and backup timings with logging enabled. Preserve no player\nidentifiers or chat contents in GitHub results. A plugin rollback is not a full backup.\n\n## Gate 3 — safe update rehearsal
+Current status: NOT RUN. Only after COREPROTECT.md's immutable version/hash
+requirement is satisfied, test CoreProtect block and container history with
+Java and Floodgate identities on PC staging. Confirm normal players cannot
+inspect or rollback histories, trusted admins can preview and reverse a small
+synthetic grief event, and restored databases preserve logs. Repeat representative
+MSPT, disk utilization and backup timings with logging enabled. Preserve no player
+identifiers or chat contents in GitHub results. A plugin rollback is not a full backup.
+
+## Gate 3 — safe update rehearsal
 
 Starting from a restored snapshot with real test progress and deliberately
 customized harmless config values, stage the candidate release. Verify custom
