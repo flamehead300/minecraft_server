@@ -1,6 +1,6 @@
 # Backups, restoration and rollback
 
-**No real Minecraft recovery has passed yet.** Automated tests verify byte-copy
+**No real Minecraft recovery has passed yet.** The operator's Windows PC is\nthe initial isolated restore destination; see `docs/PC_STAGING.md`. Automated tests verify byte-copy
 integrity with synthetic fixtures. A running restored world with both client
 types is a separate required acceptance test.
 
@@ -59,7 +59,7 @@ until save coordination, files/databases and restore consistency are demonstrate
 
 ## Restoration drill
 
-Restore to a separate empty instance, with distinct ports and no public routing.
+Restore to a separate empty instance, with distinct ports and no public routing.\nFor the first drill use the PC as the destination; this does not prove hosted\nprovisioning, recovery timing or DDoS/network behavior. See PC_STAGING.md.
 Use the saved Java runtime and complete matching software/config/data snapshot.
 Adjust only test-instance ports/bind address; record those diffs separately.
 Start with whitelist on. Confirm both Java and Bedrock identities, inventories,
