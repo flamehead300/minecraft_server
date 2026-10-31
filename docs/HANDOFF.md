@@ -38,6 +38,7 @@ was squash-merged in PR #1. **Use `main` for all future work**, not
 | Repository automation and package | Implemented; see results/FOUNDATION.md for final executed checks. |
 | Actual generated defaults | NOT RUN — ready for local PC staging once Java 25 is installed and the operator accepts the EULA. Generate defaults from the pinned server there; no PebbleHost purchase is required. |
 | GitHub PR #1 / CI | COMPLETE — PR #1 squash-merged to `main` as `43202b9`; the post-merge documentation commit `81e5c41` also passed Linux, Windows, and artifact jobs. 32 synthetic safety tests passed; gameplay not tested. |
+| Obsolete feature branch | PENDING DELETION — `feat/crossplay-foundation` still exists remotely after PR #1 was merged. All new work must target `main`. Delete it in GitHub → repository → Branches → find `feat/crossplay-foundation` → delete; then verify branch search returns no match. The connector currently exposes no branch-delete operation. |
 | One Java + one Bedrock, restart, actual restore | READY FOR PC STAGING / NOT RUN — does **not** require PebbleHost. Needs local Java 25, operator EULA acceptance, a Java and Bedrock test client/player, reachable LAN ports, and a supervised clean restart/backup/restore drill. Hosted validation remains separate. |
 | 5/10/20-player capacity | NOT RUN; needs real or representative active workloads plus mixed real clients. |
 | Live update and rollback | NOT RUN; requires real baseline snapshot and staged candidate. |
@@ -71,20 +72,22 @@ was squash-merged in PR #1. **Use `main` for all future work**, not
 
 ## Exact next steps
 
-1. Obtain a written PebbleHost reply using HOST_PRESALES.md. Confirm Java 25,
+1. Delete the obsolete `feat/crossplay-foundation` branch using GitHub's Branches page, and confirm that only `main` is the active development starting point. This does not remove the merged content or PR history.
+2. Obtain a written PebbleHost reply using HOST_PRESALES.md. Confirm Java 25,
    dual-protocol Bedrock port, SFTP and reliable backup procedure. No purchase yet.
-2. Independently of hosting, install Java 25 on the PC, have the operator review/accept the EULA, then use PC_STAGING.md to test one Java and one Bedrock player on the LAN, restart persistence, and full stopped backup/restore.
-3. Continue work on `main`, which contains the squash merge `43202b9`. Confirm its current SHA and CI before changing deployment tooling; CI alone is not evidence of game readiness.
-4. Obtain the operator's explicit acceptance of the weekly backup cadence and potential seven-day data loss (or select a verified alternative). Only after host purchase and operator EULA approval, follow DEPLOYMENT.md
+3. Independently of hosting, install Java 25 on the PC, have the operator review/accept the EULA, then use PC_STAGING.md to test one Java and one Bedrock player on the LAN, restart persistence, and full stopped backup/restore.
+4. Continue work on `main`, which contains the squash merge `43202b9`. Confirm its current SHA and CI before changing deployment tooling; CI alone is not evidence of game readiness.
+5. Obtain the operator's explicit acceptance of the weekly backup cadence and potential seven-day data loss (or select a verified alternative). Only after host purchase and operator EULA approval, follow DEPLOYMENT.md
    initial-install steps and capture actual generated defaults.
-5. Execute TEST_PLAN milestone 1 against the actual host, then stage 5/10/20
+6. Execute TEST_PLAN milestone 1 against the actual host, then stage 5/10/20
    active-player capacity tests with representative workloads.
-6. Obtain a compatible immutable CoreProtect release and verified hash,
+7. Obtain a compatible immutable CoreProtect release and verified hash,
    extend the binary lock and manifest, test it on PC, then approve installation.
 
 ## Continuation prompt
 
-> Open `flamehead300/minecraft_server` on `main`. Confirm PR #1 was
+> Open `flamehead300/minecraft_server` on `main` (never the obsolete
+> `feat/crossplay-foundation` branch). Confirm PR #1 was
 > squash-merged in commit `43202b9` and verify the current branch/SHA.
 > Read `docs/HANDOFF.md`, `docs/HOST_PRESALES.md`,
 > `docs/BACKUP_RESTORE.md` and relevant AGENTS.md instructions. Confirm
