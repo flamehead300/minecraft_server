@@ -26,7 +26,7 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 - Survival/normal, whitelist, Java authentication, Floodgate, view 8 / simulation 6.
 - Initial heap proposal 2–6 GiB; measure total memory under the 8 GB cap.
 - Manual panel/file transfer only. No host purchase, EULA acceptance or world overwrite.
-- Stopped full backups, encrypted off-host copies, restore into separate instances.
+- Provisional weekly manual clean-stopped backups plus pre-change backups, with up to seven days (or more when missed) lost progress. Operator acceptance pending; encrypted off-host copies and isolated PC restore required.
 
 ## Milestones and evidence
 
@@ -37,7 +37,7 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 | Real JAR downloads / SHA-256 | All three match official release metadata; archive validation passed. |
 | Repository automation and package | Implemented; see results/FOUNDATION.md for final executed checks. |
 | Actual generated defaults | BLOCKED: Java 25 + operator-authorized first boot/EULA required. Renderer refuses absent/unmatched defaults. |
-| Remote GitHub branch / PR / Actions | Draft PR #1 published; foundation validation previously passed. New amendment checks must be re-run. |
+| Remote GitHub branch / PR / Actions | Draft PR #1 has 32 passing synthetic tests and GitHub Actions passed at `834aa4a`; final documentation changes require new checks before squash merge. |
 | One Java + one Bedrock, restart, actual restore | BLOCKED: hosting/allocated ports, operator EULA step, both clients and testers. Not passed. |
 | 5/10/20-player capacity | NOT RUN; needs real or representative active workloads plus mixed real clients. |
 | Live update and rollback | NOT RUN; requires real baseline snapshot and staged candidate. |
@@ -47,9 +47,29 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 - **Host pre-sales:** `docs/HOST_PRESALES.md` records $18/month advertised for Premium 8 GB, published SFTP, Premium backups and scheduling. A support reply confirming Java 25, separate NetherNet TCP+UDP port and schedule-backup capability is **not received**; purchase gate stays closed.
 - **PC staging:** Accepted. `docs/PC_STAGING.md` uses operator Windows PC for first full restore and Java+Bedrock crossplay drill, plus explicit local Java 25 prerequisite. Real local launch remains NOT RUN.
 - **Scheduled stop → backup → start:** Accepted as a target, **not enabled**. PebbleHost lists only power/console task actions; no verified backup task or completion barrier. Use manually supervised stopped backups until host confirms a supported transactional sequence. Do not implement stop → fixed timer → start as though reliable.
-- **Plugin-only fast path:** Added `scripts/plugin_update.py`, `tests/test_plugin_update.py` and `docs/PLUGIN_UPDATES.md`. Requires unchanged Paper and Java lock plus full stopped backup and stage tests. GitHub Actions needs verification on the new commit.
+- **Plugin-only fast path:** Added `scripts/plugin_update.py`, `tests/test_plugin_update.py` and `docs/PLUGIN_UPDATES.md`. Requires unchanged Paper and Java lock plus full stopped backup and stage tests. At head `834aa4a`, GitHub Actions on Windows, Linux, and package validation passed.
 - **CoreProtect:** Requested. See `docs/COREPROTECT.md`; public v24.1 documented through MC 26.2, whereas a 26.3-compatible 25.1 release is listed via Patreon without a verified download/hash. **Do not silently deploy a nonmatching or floating build**. Pin, package and test when eligible verified artifact is obtained.
 - **Visibility wording:** Removed fixed '(private)' labels from HANDOFF and PUBLISH. Verify GitHub settings rather than assuming access.
+
+## Correction and review — 2026-10-30
+
+- Corrected BACKUP_RESTORE.md: the previous daily manually stopped schedule
+  and 24-hour RPO were unrealistic without confirmed automation. The provisional
+  baseline is a weekly manually stopped full off-host snapshot, plus an extra
+  backup before every risky change. It retains four verified weekly copies,
+  three month-end copies, and pre-upgrade copies. **Up to seven days or more of
+  progress may be lost.** The owner has not yet accepted this cadence; do not
+  claim the policy is running or open production without operator sign-off.
+- On `834aa4a`: 32 local safety tests passed, Linux/Windows GitHub Actions
+  and artifact checks passed. A new documentation-only commit must be checked
+  independently before PR #1 is squash-merged into `main`.
+- Squash merge is preferred to avoid per-file commit noise. Once merged, the
+  authoritative continuation branch is `main`, not the former review branch.
+- Official CoreProtect CE v24.1 supports Minecraft through 26.2, not 26.3.
+  It is optional for the whitelisted first milestone; do not install it
+  until a verified supported release is pinned.
+- GitHub repository visibility was verified as public during this review.
+  Keep private game/server data, credentials and private plugin keys out of Git.
 
 ## Exact next steps
 
@@ -57,9 +77,8 @@ for future work. Prior downloadable archives are pre-publication snapshots.
    dual-protocol Bedrock port, SFTP and reliable backup procedure. No purchase yet.
 2. Use PC_STAGING.md to prove one Java + Bedrock join, restart persistence and
    full stopped backup/restore after operator-approved EULA acceptance.
-3. Review draft PR #1 on `feat/crossplay-foundation` and await passing GitHub
-   checks on its newest commit before merging. Do not deploy on CI alone.
-4. Only after host purchase and operator EULA approval, follow DEPLOYMENT.md
+3. Verify GitHub Actions on the final pull-request head, then squash-merge PR #1 to `main`. CI alone is not evidence of game readiness.
+4. Obtain the operator's explicit acceptance of the weekly backup cadence and potential seven-day data loss (or select a verified alternative). Only after host purchase and operator EULA approval, follow DEPLOYMENT.md
    initial-install steps and capture actual generated defaults.
 5. Execute TEST_PLAN milestone 1 against the actual host, then stage 5/10/20
    active-player capacity tests with representative workloads.
@@ -70,11 +89,11 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 
 > Open `flamehead300/minecraft_server`, verify the branch and commit and read
 > `docs/HANDOFF.md`, `docs/results/FOUNDATION.md` and any AGENTS.md. Continue the
-> first unchecked milestone on `feat/crossplay-foundation`. Preserve unrelated
+> first unchecked milestone on `main` if PR #1 is merged (else on its review branch). Preserve unrelated
 > work. Do not purchase hosting, accept agreements or overwrite a world. Distinguish
 > automated/synthetic checks from real crossplay, restart and restore tests. Update
 > HANDOFF after each milestone and deliver a reviewable commit/PR.
 
-The repository is the continuation record. Use `python scripts/continuation.py`
+Check whether PR #1 was squash-merged and confirm the current `main` SHA. The repository is the continuation record. Use `python scripts/continuation.py`
 to print a current prompt with branch/commit and this handoff; forward that output
 to the next chat. This avoids relying on conversational memory.
