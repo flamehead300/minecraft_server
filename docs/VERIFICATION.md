@@ -44,17 +44,21 @@ Do not silently select an older Minecraft version just to use the available JRE.
 | File transfer | Host advertises FTP access; indexed file-access guide references SFTP. Confirm actual encrypted endpoint, credentials handling and host key in the panel. |
 | Backups | Official guide documents 4 Premium manual backup slots retained for 7 days, download links and optional automatic-backup access; export and consistency must be verified in the purchased instance. |
 | Memory | Custom startup flags advertised; effective heap limit and total-process accounting need panel confirmation. |
-| Scheduler | Official Scheduled Tasks guide lists Power Action and Send Command only. No verified native Backup action or completion barrier; automation blocked pending support. |\n| API | Knowledgebase lists an API article; no deployment API was tested or assumed. |\n| CoreProtect | Public Community Edition v24.1 lists support only through MC 26.2; developer's Patreon lists v25.1 as 26.3-compatible but no usable verified immutable JAR/hash is available to this project. See COREPROTECT.md. |
+| Scheduler | Official Scheduled Tasks guide lists Power Action and Send Command only. No verified native Backup action or completion barrier; automation blocked pending support. |
+| API | Knowledgebase lists an API article; no deployment API was tested or assumed. |
+| CoreProtect | Public Community Edition v24.1 lists support only through MC 26.2; developer's Patreon lists v25.1 as 26.3-compatible but no usable verified immutable JAR/hash is available to this project. See COREPROTECT.md. |
 
 Official host sources consulted:
 
-- https://billing.pebblehost.com/index.php?rp=%2Fstore%2Fpremium-minecraft-hosting\n- https://pebblehost.com/minecraft/premium
+- https://billing.pebblehost.com/index.php?rp=%2Fstore%2Fpremium-minecraft-hosting
+- https://pebblehost.com/minecraft/premium
 - https://help.pebblehost.com/en/minecraft/choosing-a-minecraft-server-version
 - https://help.pebblehost.com/en/minecraft/how-to-change-your-java-version-on-your-minecraft-server
 - https://help.pebblehost.com/en/minecraft/additional-ports-system
 - https://help.pebblehost.com/en/minecraft/how-to-install-geyser-and-floodgate-onto-your-minecraft-server
 - https://help.pebblehost.com/en/minecraft/how-to-access-your-minecraft-servers-files
-- https://help.pebblehost.com/en/minecraft/backups-explained\n- https://help.pebblehost.com/en/minecraft/how-to-set-up-scheduled-tasks
+- https://help.pebblehost.com/en/minecraft/backups-explained
+- https://help.pebblehost.com/en/minecraft/how-to-set-up-scheduled-tasks
 
 Several help pages rendered only an input control in the research reader;
 indexed snippets and the public product page provide partial evidence. No
