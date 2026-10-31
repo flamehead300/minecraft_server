@@ -10,9 +10,9 @@ with a minimal README, then created `feat/crossplay-foundation` for review.
 PR #1 was squash-merged into `main` as `43202b9` after CI passed;
 browser or Google sign-in is not required. No existing remote work was overwritten.
 
-The original local preparation history ends at 1926fde; the remote review branch
-uses the new repository's initial commit as its parent. Use the remote branch
-for future work. Prior downloadable archives are pre-publication snapshots.
+The original local preparation history ends at 1926fde; the earlier feature branch
+was squash-merged in PR #1. **Use `main` for all future work**, not
+`feat/crossplay-foundation`. Prior downloadable archives are pre-publication snapshots.
 
 ## Decisions
 
@@ -36,16 +36,16 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 | Official documentation / version selection | Complete at documentation level; host-specific confirmations listed in VERIFICATION. |
 | Real JAR downloads / SHA-256 | All three match official release metadata; archive validation passed. |
 | Repository automation and package | Implemented; see results/FOUNDATION.md for final executed checks. |
-| Actual generated defaults | BLOCKED: Java 25 + operator-authorized first boot/EULA required. Renderer refuses absent/unmatched defaults. |
-| Remote GitHub branch / PR / Actions | Draft PR #1 has 32 passing synthetic tests and GitHub Actions passed at `834aa4a`; final documentation changes require new checks before squash merge. |
-| One Java + one Bedrock, restart, actual restore | BLOCKED: hosting/allocated ports, operator EULA step, both clients and testers. Not passed. |
+| Actual generated defaults | NOT RUN — ready for local PC staging once Java 25 is installed and the operator accepts the EULA. Generate defaults from the pinned server there; no PebbleHost purchase is required. |
+| GitHub PR #1 / CI | COMPLETE — PR #1 squash-merged to `main` as `43202b9`; the post-merge documentation commit `81e5c41` also passed Linux, Windows, and artifact jobs. 32 synthetic safety tests passed; gameplay not tested. |
+| One Java + one Bedrock, restart, actual restore | READY FOR PC STAGING / NOT RUN — does **not** require PebbleHost. Needs local Java 25, operator EULA acceptance, a Java and Bedrock test client/player, reachable LAN ports, and a supervised clean restart/backup/restore drill. Hosted validation remains separate. |
 | 5/10/20-player capacity | NOT RUN; needs real or representative active workloads plus mixed real clients. |
 | Live update and rollback | NOT RUN; requires real baseline snapshot and staged candidate. |
 
 ## Amendments — 2026-10-30
 
 - **Host pre-sales:** `docs/HOST_PRESALES.md` records $18/month advertised for Premium 8 GB, published SFTP, Premium backups and scheduling. A support reply confirming Java 25, separate NetherNet TCP+UDP port and schedule-backup capability is **not received**; purchase gate stays closed.
-- **PC staging:** Accepted. `docs/PC_STAGING.md` uses operator Windows PC for first full restore and Java+Bedrock crossplay drill, plus explicit local Java 25 prerequisite. Real local launch remains NOT RUN.
+- **PC staging:** Accepted. `docs/PC_STAGING.md` uses the operator's Windows PC for the first local crossplay, restart and full restore drill. Hosting access is **not** a prerequisite. Java 25, operator EULA acceptance and Java/Bedrock testers remain prerequisites. Real local launch remains NOT RUN.
 - **Scheduled stop → backup → start:** Accepted as a target, **not enabled**. PebbleHost lists only power/console task actions; no verified backup task or completion barrier. Use manually supervised stopped backups until host confirms a supported transactional sequence. Do not implement stop → fixed timer → start as though reliable.
 - **Plugin-only fast path:** Added `scripts/plugin_update.py`, `tests/test_plugin_update.py` and `docs/PLUGIN_UPDATES.md`. Requires unchanged Paper and Java lock plus full stopped backup and stage tests. At head `834aa4a`, GitHub Actions on Windows, Linux, and package validation passed.
 - **CoreProtect:** Requested. See `docs/COREPROTECT.md`; public v24.1 documented through MC 26.2, whereas a 26.3-compatible 25.1 release is listed via Patreon without a verified download/hash. **Do not silently deploy a nonmatching or floating build**. Pin, package and test when eligible verified artifact is obtained.
@@ -62,8 +62,7 @@ for future work. Prior downloadable archives are pre-publication snapshots.
   claim the policy is running or open production without operator sign-off.
 - On `834aa4a`: 32 local safety tests passed, Linux/Windows GitHub Actions
   and artifact checks passed. The final PR-head CI passed before squash merge into `main`.
-- PR #1 was squash-merged; `main` is now authoritative. The previous feature
-  branch and pre-publication archives are historical.
+- PR #1 was squash-merged; `main` is now authoritative. `feat/crossplay-foundation` is an obsolete historical branch and **must not be used for new work**. Its deletion was requested but is unconfirmed until GitHub verifies the branch is gone.
 - Official CoreProtect CE v24.1 supports Minecraft through 26.2, not 26.3.
   It is optional for the whitelisted first milestone; do not install it
   until a verified supported release is pinned.
@@ -74,8 +73,7 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 
 1. Obtain a written PebbleHost reply using HOST_PRESALES.md. Confirm Java 25,
    dual-protocol Bedrock port, SFTP and reliable backup procedure. No purchase yet.
-2. Use PC_STAGING.md to prove one Java + Bedrock join, restart persistence and
-   full stopped backup/restore after operator-approved EULA acceptance.
+2. Independently of hosting, install Java 25 on the PC, have the operator review/accept the EULA, then use PC_STAGING.md to test one Java and one Bedrock player on the LAN, restart persistence, and full stopped backup/restore.
 3. Continue work on `main`, which contains the squash merge `43202b9`. Confirm its current SHA and CI before changing deployment tooling; CI alone is not evidence of game readiness.
 4. Obtain the operator's explicit acceptance of the weekly backup cadence and potential seven-day data loss (or select a verified alternative). Only after host purchase and operator EULA approval, follow DEPLOYMENT.md
    initial-install steps and capture actual generated defaults.
