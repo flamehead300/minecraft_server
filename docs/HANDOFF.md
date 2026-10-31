@@ -2,7 +2,7 @@
 
 ## Current state
 
-Repository: https://github.com/flamehead300/minecraft_server (private).
+Repository: https://github.com/flamehead300/minecraft_server.\nDo not hard-code repository visibility; inspect GitHub settings before sharing access.
 The user created this repository and authorized it as the destination. Inspection
 confirmed it was empty with no branches, files or AGENTS.md. Initialized `main`
 with a minimal README, then created `feat/crossplay-foundation` for review.
@@ -36,14 +36,25 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 | Real JAR downloads / SHA-256 | All three match official release metadata; archive validation passed. |
 | Repository automation and package | Implemented; see results/FOUNDATION.md for final executed checks. |
 | Actual generated defaults | BLOCKED: Java 25 + operator-authorized first boot/EULA required. Renderer refuses absent/unmatched defaults. |
-| Remote GitHub branch / PR / Actions | Review branch created; publication and CI results recorded below as they complete. |
+| Remote GitHub branch / PR / Actions | Draft PR #1 published; foundation validation previously passed. New amendment checks must be re-run. |
 | One Java + one Bedrock, restart, actual restore | BLOCKED: hosting/allocated ports, operator EULA step, both clients and testers. Not passed. |
 | 5/10/20-player capacity | NOT RUN; needs real or representative active workloads plus mixed real clients. |
 | Live update and rollback | NOT RUN; requires real baseline snapshot and staged candidate. |
 
+## Amendments — 2026-10-30
+
+- **Host pre-sales:** `docs/HOST_PRESALES.md` records $18/month advertised for Premium 8 GB, published SFTP, Premium backups and scheduling. A support reply confirming Java 25, separate NetherNet TCP+UDP port and schedule-backup capability is **not received**; purchase gate stays closed.
+- **PC staging:** Accepted. `docs/PC_STAGING.md` uses operator Windows PC for first full restore and Java+Bedrock crossplay drill, plus explicit local Java 25 prerequisite. Real local launch remains NOT RUN.
+- **Scheduled stop → backup → start:** Accepted as a target, **not enabled**. PebbleHost lists only power/console task actions; no verified backup task or completion barrier. Use manually supervised stopped backups until host confirms a supported transactional sequence. Do not implement stop → fixed timer → start as though reliable.
+- **Plugin-only fast path:** Added `scripts/plugin_update.py`, `tests/test_plugin_update.py` and `docs/PLUGIN_UPDATES.md`. Requires unchanged Paper and Java lock plus full stopped backup and stage tests. GitHub Actions needs verification on the new commit.
+- **CoreProtect:** Requested. See `docs/COREPROTECT.md`; public v24.1 documented through MC 26.2, whereas a 26.3-compatible 25.1 release is listed via Patreon without a verified download/hash. **Do not silently deploy a nonmatching or floating build**. Pin, package and test when eligible verified artifact is obtained.
+- **Visibility wording:** Removed fixed '(private)' labels from HANDOFF and PUBLISH. Verify GitHub settings rather than assuming access.
+
 ## Exact next steps
 
-1. Review the pull request on `flamehead300/minecraft_server`, branch
+1. Obtain a written PebbleHost reply using HOST_PRESALES.md. Confirm `Java 25`, dual-protocol Bedrock port, SFTP and reliable backup workflow; do not purchase until the blockers are resolved.
+2. Complete the PC stage/restore drill once Java 25 and a suitable machine are available. Record exact results without secrets.
+3. Review the pull request on `flamehead300/minecraft_server`, branch
    `feat/crossplay-foundation`. Check its latest commit and GitHub checks before
    merging. Do not deploy merely because repository checks pass.
 2. Confirm host price, Java 25 exact runtime, separate TCP+UDP Bedrock allocation,
@@ -52,9 +63,9 @@ for future work. Prior downloadable archives are pre-publication snapshots.
 3. After the operator provisions the service and accepts agreements, follow
    DEPLOYMENT initial-install steps. Generate/capture defaults and review initial
    config proposals before exposing the whitelisted listener.
-4. Execute TEST_PLAN gate 1: one real Java + one real Bedrock player, restart
+5. Execute TEST_PLAN gate 1: one real Java + one real Bedrock player, restart
    persistence, then complete stopped backup/restoration into a separate instance.
-   Record evidence and update this file. Only then start capacity stages.
+   Record evidence and update this file. Only then start capacity stages.\n6. Obtain a compatible immutable CoreProtect release/hash, extend the lock and manifest,\n   test it on PC, and then explicitly approve the additional plugin.
 
 ## Continuation prompt
 
